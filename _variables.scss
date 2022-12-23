@@ -1,0 +1,42 @@
+$youtube-img: 35px;
+$padding-basic: 7px;
+$ten-pixel: 10px;
+$border: 20px;
+$profile-size: 36px;
+$light-color: white;
+$dark-color: black;
+$body-color: hsl(0, 0%, 6%);
+$gray-color: rgb(47, 47, 47);
+$gray-light: rgb(63, 62, 62);
+$super-gray: rgb(179, 178, 178);
+
+@mixin borders-bar(
+  $corner: $border,
+  $outlines: (
+    1px hsl(0, 0%, 18.82%) solid,
+  )
+) {
+  border-radius: $corner;
+  border: $outlines;
+}
+@mixin button-reset {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+@mixin flex-align {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-and-gap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@mixin videos-shorts-description {
+  p {
+    color: $super-gray;
+    font-size: 14px;
+    padding-top: 3px;
+  }
+}

@@ -1,0 +1,241 @@
+@import "variables";
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $light-color;
+}
+body {
+  background-color: $body-color;
+  /*Scrollbar bar on the right side of my window*/
+  &::-webkit-scrollbar {
+    width: $padding-basic + 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: $ten-pixel;
+    background-color: white;
+  }
+}
+a {
+  text-decoration: none;
+}
+main {
+  padding: $padding-basic;
+  margin-right: $ten-pixel;
+  display: flex;
+}
+/******************* Making the header ****************/
+header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding: $padding-basic;
+  background-color: $body-color;
+  margin-right: $ten-pixel;
+}
+#header-container {
+  @include flex-align;
+  justify-content: space-between;
+  margin-bottom: $ten-pixel;
+  .youtube-logo {
+    @include flex-align;
+    gap: $padding-basic;
+    cursor: pointer;
+  }
+  /*////////////////// Search Bar ///////////////////*/
+  .search-bar-container {
+    @include flex-align;
+    flex-basis: 52%;
+    gap: $ten-pixel;
+    .search-bar {
+      @include flex-align;
+      @include borders-bar;
+      overflow: hidden;
+      flex: 1;
+      input {
+        outline: none;
+        border: none;
+        background: transparent;
+        flex: 1;
+        padding: $padding-basic;
+
+        &::placeholder {
+          font-size: 16px;
+          padding-left: $ten-pixel;
+        }
+      }
+      label {
+        background-color: $gray-color;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  }
+  /************Notification icons and profile*********/
+  span {
+    @include button-reset;
+    padding: $padding-basic;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $gray-light;
+    }
+  }
+  .notifications {
+    @include flex-align;
+    gap: 16px;
+  }
+  .left-mic {
+    margin-right: 200px;
+  }
+}
+
+/*******************Labels or tags of interests*********************/
+nav {
+  .interests {
+    overflow: auto;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      display: none;
+    }
+    li {
+      @include borders-bar($ten-pixel);
+      display: inline-block;
+      margin-right: $padding-basic;
+      background-color: $gray-color;
+      padding: $padding-basic 13px;
+      &:hover {
+        cursor: pointer;
+        background-color: $gray-light;
+      }
+    }
+  }
+}
+.profile-img img {
+  width: $profile-size;
+  height: $profile-size;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/******************Now the Principal VIDEOS ****************************/
+#many-videos {
+  @include flex-and-gap;
+  .videos {
+    flex-basis: 200px;
+    .thumbnail {
+      width: fit-content;
+      height: 180px;
+      display: block;
+      line-height: 0;
+      border-radius: $border;
+    }
+    &:hover {
+      transform: scale(1.2);
+      transition: all 1.3s;
+      .thumbnail {
+        border-bottom-left-radius: initial;
+        border-bottom-right-radius: initial;
+        transition: all 1.5s;
+      }
+      .videos-description {
+        background: $gray-light;
+        transition: all 1.3s;
+        border-bottom-left-radius: $border;
+        border-bottom-right-radius: $border;
+      }
+    }
+    #{"&-" + "description"} {
+      display: flex;
+      gap: $ten-pixel;
+      padding: $padding-basic 0px;
+      @include videos-shorts-description;
+    }
+  }
+}
+/***********Shorts Videos**************/
+#section-shorts {
+  @include flex-and-gap;
+  gap: $ten-pixel;
+  border-top: solid $padding-basic $gray-color;
+  border-bottom: solid $padding-basic $gray-color;
+  padding-top: $border;
+  padding-bottom: $border;
+
+  .align-short-logo {
+    @include flex-align;
+    flex-basis: 100%;
+    gap: $ten-pixel;
+    img {
+      width: $border;
+      height: $border;
+    }
+    h2 {
+      font-weight: 200;
+    }
+  }
+
+  .shorts {
+    flex-basis: 230px;
+    img {
+      height: 370px;
+      width: 100%;
+      border-radius: $border;
+    }
+    #{"&-" + "description"} {
+      padding: $padding-basic 0px;
+    }
+  }
+  .shorts-description {
+    @include videos-shorts-description;
+  }
+}
+@media (min-width: 300px) {
+  #header-container {
+    flex-wrap: wrap;
+  }
+}
+/****************Left Bar menu Aside*********************/
+aside {
+  width: 250px;
+  position: fixed;
+  top: 16%;
+  bottom: 0;
+  left: -400px;
+  overflow-y: hidden;
+  transition: 0.9s;
+  background-color: $body-color;
+  .left-bar-icons {
+    border-bottom: solid 2px $gray-color;
+    padding: $ten-pixel $ten-pixel;
+  }
+  .left-bar-icons li {
+    @include flex-align;
+    gap: 10px;
+    width: 100%;
+    padding: $ten-pixel $border;
+    cursor: pointer;
+    &:hover {
+      @include borders-bar($ten-pixel, none);
+      background-color: $gray-light;
+    }
+  }
+  &:hover {
+    overflow-y: auto;
+  }
+  &::-webkit-scrollbar {
+    width: $padding-basic + 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: $ten-pixel;
+    background-color: white;
+  }
+  h3 {
+    font-weight: 300;
+  }
+}
+.deploy {
+  transform: translateX(400px);
+}
