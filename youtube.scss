@@ -23,7 +23,6 @@ a {
 main {
   padding: $padding-basic;
   margin-right: $ten-pixel;
-  display: flex;
 }
 /******************* Making the header ****************/
 header {
@@ -96,11 +95,10 @@ nav {
   .interests {
     overflow: auto;
     white-space: nowrap;
-
     &::-webkit-scrollbar {
-      width: 12px;
       display: none;
     }
+
     li {
       @include borders-bar($ten-pixel);
       display: inline-block;
@@ -111,6 +109,19 @@ nav {
         cursor: pointer;
         background-color: $gray-light;
       }
+    }
+    .arrows {
+      border-radius: 50%;
+      position: sticky;
+      background-color: linear-gradient((20deg));
+      border: none;
+      background-color: $body-color;
+    }
+    .arrows.one {
+      left: 0;
+    }
+    .arrows.two {
+      right: 0;
     }
   }
 }
@@ -201,7 +212,7 @@ nav {
 aside {
   width: 250px;
   position: fixed;
-  top: 16%;
+  top: 100px;
   bottom: 0;
   left: -400px;
   overflow-y: hidden;
