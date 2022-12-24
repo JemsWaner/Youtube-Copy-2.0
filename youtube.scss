@@ -8,6 +8,7 @@
 }
 body {
   background-color: $body-color;
+  margin-right: $ten-pixel;
   /*Scrollbar bar on the right side of my window*/
   &::-webkit-scrollbar {
     width: $padding-basic + 2px;
@@ -22,7 +23,6 @@ a {
 }
 main {
   padding: $padding-basic;
-  margin-right: $ten-pixel;
 }
 /******************* Making the header ****************/
 header {
@@ -31,7 +31,7 @@ header {
   z-index: 3;
   padding: $padding-basic;
   background-color: $body-color;
-  margin-right: $ten-pixel;
+  padding-right: $ten-pixel;
 }
 #header-container {
   @include flex-align;
@@ -47,22 +47,21 @@ header {
     @include flex-align;
     flex-basis: 52%;
     gap: $ten-pixel;
+    max-width: 700px;
     .search-bar {
       @include flex-align;
       @include borders-bar;
       overflow: hidden;
       flex: 1;
+
       input {
         outline: none;
         border: none;
         background: transparent;
         flex: 1;
         padding: $padding-basic;
-
-        &::placeholder {
-          font-size: 16px;
-          padding-left: $ten-pixel;
-        }
+        font-size: 16px;
+        padding-left: $border;
       }
       label {
         background-color: $gray-color;
@@ -113,7 +112,6 @@ nav {
     .arrows {
       border-radius: 50%;
       position: sticky;
-      background-color: linear-gradient((20deg));
       border: none;
       background-color: $body-color;
     }
@@ -132,12 +130,12 @@ nav {
   cursor: pointer;
 }
 /******************Now the Principal VIDEOS ****************************/
-#many-videos {
+.many-videos {
   @include flex-and-gap;
+  margin-top: $border;
   .videos {
     flex-basis: 200px;
     .thumbnail {
-      width: fit-content;
       height: 180px;
       display: block;
       line-height: 0;
@@ -174,7 +172,7 @@ nav {
   border-bottom: solid $padding-basic $gray-color;
   padding-top: $border;
   padding-bottom: $border;
-
+  margin: 26px auto;
   .align-short-logo {
     @include flex-align;
     flex-basis: 100%;
@@ -201,11 +199,6 @@ nav {
   }
   .shorts-description {
     @include videos-shorts-description;
-  }
-}
-@media (min-width: 300px) {
-  #header-container {
-    flex-wrap: wrap;
   }
 }
 /****************Left Bar menu Aside*********************/
@@ -249,4 +242,30 @@ aside {
 }
 .deploy {
   transform: translateX(400px);
+}
+/************Media screen responsive*******************/
+@media (max-width: 450px) {
+  main {
+    overflow: hidden;
+  }
+  #header-container {
+    flex-wrap: wrap;
+    #menu {
+      display: none;
+    }
+  }
+  .arrows.one,
+  .arrows.two {
+    display: none;
+  }
+
+  .videos {
+    flex: 1;
+  }
+  .thumbnail {
+    width: 100%;
+  }
+  .shorts {
+    flex-basis: 100px;
+  }
 }
