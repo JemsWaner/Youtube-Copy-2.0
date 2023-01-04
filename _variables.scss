@@ -40,3 +40,8 @@ $super-gray: rgb(179, 178, 178);
     padding-top: 3px;
   }
 }
+@mixin grid-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 20px;
+}
