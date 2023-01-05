@@ -24,7 +24,7 @@ a {
 }
 
 main {
-  padding: 7px;
+  padding: 7px 7px 7px 35px;
 }
 
 /******************* Making the header ****************/
@@ -41,6 +41,7 @@ header {
 #header-container {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 10px;
   /*////////////////// Search Bar ///////////////////*/
@@ -144,13 +145,12 @@ nav .interests .arrows.two {
 /******************Now the Principal VIDEOS ****************************/
 .many-videos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 290px);
+  grid-gap: 16px;
   margin-top: 20px;
-  padding-left: 35px;
 }
 .many-videos .videos .thumbnail {
-  width: 300px;
+  width: 290px;
   height: 180px;
   display: block;
   line-height: 0;
@@ -184,21 +184,15 @@ nav .interests .arrows.two {
 
 /***********Shorts Videos**************/
 #section-shorts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  gap: 10px;
-  border-top: solid 7px rgb(47, 47, 47);
-  border-bottom: solid 7px rgb(47, 47, 47);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  border-top: solid 5px rgb(47, 47, 47);
+  border-bottom: solid 5px rgb(47, 47, 47);
   margin: 26px auto;
 }
 #section-shorts .align-short-logo {
   display: flex;
   align-items: center;
-  flex-basis: 100%;
   gap: 10px;
+  margin-top: 20px;
 }
 #section-shorts .align-short-logo img {
   width: 20px;
@@ -207,21 +201,42 @@ nav .interests .arrows.two {
 #section-shorts .align-short-logo h2 {
   font-weight: 200;
 }
-#section-shorts .shorts {
+#section-shorts .section-shorts-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  gap: 10px;
+  padding: 35px 0;
+}
+#section-shorts .section-shorts-container2 .shorts {
   flex-basis: 230px;
 }
-#section-shorts .shorts img {
+#section-shorts .section-shorts-container2 .shorts img {
   height: 370px;
   width: 100%;
   border-radius: 20px;
 }
-#section-shorts .shorts-description {
+#section-shorts .section-shorts-container2 .shorts-description {
   padding: 7px 0px;
 }
-#section-shorts .shorts-description p {
+#section-shorts .section-shorts-container2 .shorts-description p {
   color: rgb(179, 178, 178);
   font-size: 14px;
   padding-top: 3px;
+}
+
+/***********------Shorts Videos Hidden-----**************/
+#expand-more {
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: -30px;
+}
+#expand-more:hover {
+  background-color: rgb(63, 62, 62);
+}
+
+.hidden {
+  display: none;
 }
 
 /****************Left Bar menu Aside*********************/
@@ -274,6 +289,7 @@ aside h3 {
 @media (max-width: 450px) {
   main {
     overflow: hidden;
+    padding-left: 7px;
   }
   #header-container {
     flex-wrap: wrap;
@@ -285,10 +301,28 @@ aside h3 {
 .arrows.two {
     display: none;
   }
-  .thumbnail {
+  .many-videos {
+    justify-items: stretch;
+    grid-template-columns: auto;
+  }
+  .many-videos .videos .thumbnail {
     width: 100%;
   }
-  .shorts {
-    flex-basis: 100px;
+  #section-shorts .section-shorts-container2 {
+    flex-wrap: nowrap;
+    overflow-y: scroll;
+  }
+  #section-shorts .section-shorts-container2::-webkit-scrollbar {
+    display: none;
+  }
+  #section-shorts .section-shorts-container2 .shorts img {
+    border-radius: initial;
+    width: 200px;
+  }
+  #section-shorts #expand-more {
+    display: none;
+  }
+  #section-shorts .hidden {
+    display: revert;
   }
 }/*# sourceMappingURL=youtube.css.map */

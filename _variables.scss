@@ -42,6 +42,6 @@ $super-gray: rgb(179, 178, 178);
 }
 @mixin grid-videos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 290px);
+  grid-gap: 16px;
 }

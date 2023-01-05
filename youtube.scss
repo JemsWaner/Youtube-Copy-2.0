@@ -22,7 +22,7 @@ a {
   text-decoration: none;
 }
 main {
-  padding: $padding-basic;
+  padding: $padding-basic $padding-basic $padding-basic $youtube-img;
 }
 /******************* Making the header ****************/
 header {
@@ -35,6 +35,7 @@ header {
 }
 #header-container {
   @include flex-align;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: $ten-pixel;
   .youtube-logo {
@@ -133,10 +134,9 @@ nav {
 .many-videos {
   @include grid-videos;
   margin-top: $border;
-  padding-left: $youtube-img;
   .videos {
     .thumbnail {
-      width: 300px;
+      width: 290px;
       height: 180px;
       display: block;
       line-height: 0;
@@ -167,17 +167,13 @@ nav {
 }
 /***********Shorts Videos**************/
 #section-shorts {
-  @include flex-and-gap;
-  gap: $ten-pixel;
-  border-top: solid $padding-basic $gray-color;
-  border-bottom: solid $padding-basic $gray-color;
-  padding-top: $border;
-  padding-bottom: $border;
+  border-top: solid 5px $gray-color;
+  border-bottom: solid 5px $gray-color;
   margin: 26px auto;
   .align-short-logo {
     @include flex-align;
-    flex-basis: 100%;
     gap: $ten-pixel;
+    margin-top: $border;
     img {
       width: $border;
       height: $border;
@@ -186,21 +182,37 @@ nav {
       font-weight: 200;
     }
   }
-
-  .shorts {
-    flex-basis: 230px;
-    img {
-      height: 370px;
-      width: 100%;
-      border-radius: $border;
+  .section-shorts-container2 {
+    @include flex-and-gap;
+    gap: $ten-pixel;
+    padding: $youtube-img 0;
+    .shorts {
+      flex-basis: 230px;
+      img {
+        height: 370px;
+        width: 100%;
+        border-radius: $border;
+      }
+      #{"&-" + "description"} {
+        padding: $padding-basic 0px;
+      }
     }
-    #{"&-" + "description"} {
-      padding: $padding-basic 0px;
+    .shorts-description {
+      @include videos-shorts-description;
     }
   }
-  .shorts-description {
-    @include videos-shorts-description;
+}
+/***********------Shorts Videos Hidden-----**************/
+#expand-more {
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: -30px;
+  &:hover {
+    background-color: $gray-light;
   }
+}
+.hidden {
+  display: none;
 }
 /****************Left Bar menu Aside*********************/
 aside {
@@ -248,6 +260,7 @@ aside {
 @media (max-width: 450px) {
   main {
     overflow: hidden;
+    padding-left: $padding-basic;
   }
   #header-container {
     flex-wrap: wrap;
@@ -261,11 +274,31 @@ aside {
   }
 
   .many-videos {
+    justify-items: stretch;
+    grid-template-columns: auto;
+    .videos .thumbnail {
+      width: 100%;
+    }
   }
-  .thumbnail {
-    width: 100%;
-  }
-  .shorts {
-    flex-basis: 100px;
+  #section-shorts {
+    .section-shorts-container2 {
+      flex-wrap: nowrap;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .shorts {
+        img {
+          border-radius: initial;
+          width: 200px;
+        }
+      }
+    }
+    #expand-more {
+      display: none;
+    }
+    .hidden {
+      display: revert;
+    }
   }
 }
