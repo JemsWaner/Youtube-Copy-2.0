@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: hsl(0deg, 0%, 6%);
+  background-color: hsl(0deg, 0%, 8%);
   margin-right: 10px;
   /*Scrollbar bar on the right side of my window*/
 }
@@ -34,7 +34,7 @@ header {
   top: 0;
   z-index: 3;
   padding: 7px;
-  background-color: hsl(0deg, 0%, 6%);
+  background-color: hsl(0deg, 0%, 8%);
   padding-right: 10px;
 }
 
@@ -126,7 +126,7 @@ nav .interests .arrows {
   position: -webkit-sticky;
   position: sticky;
   border: none;
-  background-color: hsl(0deg, 0%, 6%);
+  background-color: hsl(0deg, 0%, 8%);
 }
 nav .interests .arrows.one {
   left: 0;
@@ -248,11 +248,14 @@ aside {
   left: -400px;
   overflow-y: hidden;
   transition: 0.9s;
-  background-color: hsl(0deg, 0%, 6%);
+  background-color: hsl(0deg, 0%, 8%);
 }
 aside .left-bar-icons {
   border-bottom: solid 2px rgb(47, 47, 47);
   padding: 10px 10px;
+}
+aside .left-bar-icons .add-more {
+  display: none;
 }
 aside .left-bar-icons li {
   display: flex;
@@ -295,6 +298,9 @@ aside h3 {
     flex-wrap: wrap;
   }
   #header-container #menu {
+    display: none;
+  }
+  #header-container .search-bar-container {
     display: none;
   }
   .arrows.one,

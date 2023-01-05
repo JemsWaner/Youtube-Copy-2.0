@@ -115,6 +115,7 @@ nav {
       position: sticky;
       border: none;
       background-color: $body-color;
+      // background-color: linear-gradient(90deg, $body-color, $gray-light);
     }
     .arrows.one {
       left: 0;
@@ -227,6 +228,9 @@ aside {
   .left-bar-icons {
     border-bottom: solid 2px $gray-color;
     padding: $ten-pixel $ten-pixel;
+    .add-more {
+      display: none;
+    }
   }
   .left-bar-icons li {
     @include flex-align;
@@ -265,6 +269,9 @@ aside {
   #header-container {
     flex-wrap: wrap;
     #menu {
+      display: none;
+    }
+    .search-bar-container {
       display: none;
     }
   }
