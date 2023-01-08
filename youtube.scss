@@ -85,6 +85,9 @@ header {
     @include flex-align;
     gap: 16px;
   }
+  #show-microphone {
+    display: none;
+  }
   .left-mic {
     margin-right: 200px;
   }
@@ -273,6 +276,11 @@ aside {
     }
     .search-bar-container {
       display: none;
+    }
+    .notifications {
+      #show-microphone {
+        display: block;
+      }
     }
   }
   .arrows.one,

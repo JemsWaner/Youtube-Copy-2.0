@@ -97,6 +97,9 @@ header {
   align-items: center;
   gap: 16px;
 }
+#header-container #show-microphone {
+  display: none;
+}
 #header-container .left-mic {
   margin-right: 200px;
 }
@@ -145,7 +148,7 @@ nav .interests .arrows.two {
 /******************Now the Principal VIDEOS ****************************/
 .many-videos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 290px);
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   grid-gap: 16px;
   margin-top: 20px;
 }
@@ -302,6 +305,9 @@ aside h3 {
   }
   #header-container .search-bar-container {
     display: none;
+  }
+  #header-container .notifications #show-microphone {
+    display: block;
   }
   .arrows.one,
 .arrows.two {
