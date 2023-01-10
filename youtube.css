@@ -148,7 +148,7 @@ nav .interests .arrows.two {
 /******************Now the Principal VIDEOS ****************************/
 .many-videos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fill, 290px);
   grid-gap: 16px;
   margin-top: 20px;
 }
